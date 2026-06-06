@@ -1,3 +1,30 @@
+$('.project-slider').slick({
+    centerMode: true,
+    centerPadding: '0px',
+    slidesToShow: 3,
+    arrows: false,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+
+    responsive: [
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 2,
+                centerMode: true
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+                centerMode: true
+            }
+        }
+    ]
+});
+
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
