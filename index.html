@@ -57,9 +57,9 @@
           </li>
           <li class="nav-item ms-lg-3">
             <a class="btn btn-gradient btn-sm px-3" href="assets/Md Sakib Rahman_CV.pdf" download>
-                <i class="bi bi-download me-1"></i> Download CV
+              <i class="bi bi-download me-1"></i> Download CV
             </a>
-        </li>
+          </li>
         </ul>
       </div>
     </div>
@@ -486,34 +486,49 @@
             </ul>
           </div>
           <div class="col-lg-7">
-            <form class="contact-form" novalidate onsubmit="handleSubmit(event)">
+            <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="71668066-e710-49aa-af6b-fb7e0181902b">
+
+              <input type="hidden" name="subject" value="New Portfolio Contact Message">
+
+              <input type="hidden" name="from_name" value="Sakib Portfolio">
+
               <div class="row g-3">
+
                 <div class="col-md-6">
                   <label class="form-label" for="name">Name</label>
-                  <input type="text" class="form-control form-control-lg" id="name" required />
+                  <input type="text" class="form-control form-control-lg" id="name" name="name" required />
                 </div>
+
                 <div class="col-md-6">
                   <label class="form-label" for="email">Email</label>
-                  <input type="email" class="form-control form-control-lg" id="email" required />
+                  <input type="email" class="form-control form-control-lg" id="email" name="email" required />
                 </div>
+
                 <div class="col-12">
-                  <label class="form-label" for="subject">Subject</label>
-                  <input type="text" class="form-control form-control-lg" id="subject" required />
+                  <label class="form-label" for="contact_subject">Subject</label>
+                  <input type="text" class="form-control form-control-lg" id="contact_subject" name="user_subject"
+                    required />
                 </div>
+
                 <div class="col-12">
                   <label class="form-label" for="message">Message</label>
-                  <textarea class="form-control form-control-lg" id="message" rows="4" required></textarea>
+                  <textarea class="form-control form-control-lg" id="message" name="message" rows="4"
+                    required></textarea>
                 </div>
+
                 <div class="col-12 d-grid">
                   <button type="submit" class="btn btn-gradient btn-lg">
                     Send Message <i class="bi bi-send-fill ms-2"></i>
                   </button>
                 </div>
+
                 <div class="col-12">
-                  <p id="formStatus" class="small text-success mb-0" hidden>
-                    Thanks! Your message has been (pretend) sent ✨
-                  </p>
+                    <p id="formStatus" class="small text-success mb-0" style="display:none;">
+                        Thanks! Your message has been sent successfully.
+                    </p>
                 </div>
+
               </div>
             </form>
           </div>
@@ -534,7 +549,7 @@
           <a href="https://www.linkedin.com/in/md-sakib-rahman-553121157/" aria-label="LinkedIn"><i
               class="bi bi-linkedin"></i></a>
           <a href="https://wa.me/8801672987580" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a> 
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
         </div>
       </div>
     </div>

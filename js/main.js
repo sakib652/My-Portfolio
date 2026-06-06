@@ -68,12 +68,47 @@ const io = new IntersectionObserver(
 );
 revealEls.forEach((el) => io.observe(el));
 
-// Contact form (demo)
-function handleSubmit(e) {
-  e.preventDefault();
-  const status = document.getElementById('formStatus');
-  status.hidden = false;
-  e.target.reset();
-  setTimeout(() => (status.hidden = true), 4000);
+const form = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+
+if (form) {
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+            const result = await response.json();
+
+            if (result.success) {
+                formStatus.style.display = "block";
+                formStatus.classList.remove("text-danger");
+                formStatus.classList.add("text-success");
+                formStatus.innerText =
+                    "Thanks! Your message has been sent successfully.";
+
+                form.reset();
+
+                setTimeout(() => {
+                    formStatus.style.display = "none";
+                }, 5000);
+            } else {
+                throw new Error(result.message);
+            }
+        } catch (error) {
+            formStatus.style.display = "block";
+            formStatus.classList.remove("text-success");
+            formStatus.classList.add("text-danger");
+            formStatus.innerText =
+                "Something went wrong. Please try again.";
+        }
+    });
 }
-window.handleSubmit = handleSubmit;
