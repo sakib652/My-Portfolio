@@ -473,7 +473,6 @@ h1, h2, h3, h4, h5, .navbar-brand {
   .hero-avatar { max-width: 260px; }
   .section { padding: 60px 0; }
   .blob-1, .blob-2, .blob-3 { filter: blur(60px); opacity: .4; }
-}
 
 /* Reveal-on-scroll */
 .reveal {
@@ -489,4 +488,9 @@ h1, h2, h3, h4, h5, .navbar-brand {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
+}
+
+@media (max-width: 768px) {
+  .float-card.card-1 { top: 4%; left: -22%; }
+  .float-card.card-2 { bottom: 4%; right: -22%; }
 }
